@@ -2,14 +2,14 @@
   "name": "Tender Heart Lab Forms",
   "short_name": "Tender Heart",
   "description": "Offline laboratory result forms for Tender Heart Laboratories.",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": ".",
+  "scope": ".",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#8f2d3f",
   "icons": [
     {
-      "src": "/tenderH.jpg",
+      "src": "tenderH.jpg",
       "sizes": "359x350",
       "type": "image/jpeg",
       "purpose": "any maskable"
