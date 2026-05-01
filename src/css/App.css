@@ -452,6 +452,33 @@ button {
   min-height: 6mm;
 }
 
+.pdf-export-root {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  width: 210mm;
+  height: auto;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.pdf-export-root .document-stack {
+  display: block;
+}
+
+.pdf-export-root .page {
+  width: 210mm;
+  height: 297mm;
+  aspect-ratio: auto;
+  margin: 0;
+  box-shadow: none;
+}
+
+.pdf-export-root .paper-form {
+  font-size: 14px;
+}
+
 @media (max-width: 1120px) {
   .app-shell {
     grid-template-columns: 1fr;

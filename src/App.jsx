@@ -813,20 +813,29 @@ async function createPdf(element) {
   if (!element) throw new Error('Document preview is not ready')
 
   const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4', compress: true })
-  const pages = [...element.querySelectorAll('.page')]
+  const exportRoot = document.createElement('div')
+  exportRoot.className = 'pdf-export-root'
+  exportRoot.append(element.cloneNode(true))
+  document.body.append(exportRoot)
 
-  for (const [index, page] of pages.entries()) {
-    if (index > 0) pdf.addPage('a4', 'portrait')
+  try {
+    const pages = [...exportRoot.querySelectorAll('.page')]
 
-    const canvas = await html2canvas(page, {
-      backgroundColor: '#ffffff',
-      scale: 2,
-      useCORS: true,
-      windowWidth: page.scrollWidth,
-      windowHeight: page.scrollHeight,
-    })
-    const image = canvas.toDataURL('image/jpeg', 0.96)
-    pdf.addImage(image, 'JPEG', 0, 0, 210, 297)
+    for (const [index, page] of pages.entries()) {
+      if (index > 0) pdf.addPage('a4', 'portrait')
+
+      const canvas = await html2canvas(page, {
+        backgroundColor: '#ffffff',
+        scale: 2,
+        useCORS: true,
+        windowWidth: 794,
+        windowHeight: 1123,
+      })
+      const image = canvas.toDataURL('image/jpeg', 0.96)
+      pdf.addImage(image, 'JPEG', 0, 0, 210, 297)
+    }
+  } finally {
+    exportRoot.remove()
   }
 
   return pdf.output('blob')
