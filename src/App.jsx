@@ -481,8 +481,8 @@ function MicrobiologyDocument({ values }) {
   return (
     <>
       <PaperPage className="dense-page">
-        <LabHeader title="Motto: We diagnose, God heals, (Microbiology/Parasitology)" compact />
-        <PatientStrip values={values} compact />
+       <LabHeader title="MICROBIOLOGY/PARASITOLOGY FORM" />  
+             <PatientStrip values={values} compact />
         <div className="micro-grid">
           <section>
             <h3>URINALYSIS (AMACROBIOLOGY)</h3>
@@ -742,9 +742,9 @@ function LabHeader({ title, compact = false }) {
     <header className={compact ? 'lab-header compact-lab-header' : 'lab-header'}>
       <p>0DE:2 6980</p>
       <h2>TENDER HEART LABORATORIES AND DIAGNOSTIC CENTRE</h2>
-      <p>No 2 Ben Ajuonuma Street Off Oraifite Road, Awada Obosi, Anambra State.</p>
+      <p>No 15 Chukwudi Okeke Crescent, Off Nnewi Road, Nkpor, Idemili North, Anambra State.</p>
       <p>
-        E-mail <u>patiechuks@gmail.com</u> ,Phone: 08036184329,08110330886.
+        E-mail <u>collinchukss@gmail.com</u>, Phone: 08110855244.
       </p>
       {!compact && <p>Motto: We diagnose, God heals</p>}
       <strong>{title}</strong>
